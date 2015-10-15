@@ -35,8 +35,8 @@ app.get('/api/todos', function(req, res) {
  // if there's an error retrieving, send th eerror. nothign after res.send(err) will execute
     if (err)
       res.send(err);
-    res.json({'hello': 'world'});
- //   res.json(todos); //return all todos in JSON format
+    
+    res.json(todos); //return all todos in JSON format
   });
 });
 
