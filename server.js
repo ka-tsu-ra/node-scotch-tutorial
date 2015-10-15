@@ -34,14 +34,15 @@ app.get('/api/todos', function(req, res) {
 
  // if there's an error retrieving, send th eerror. nothign after res.send(err) will execute
     if (err)
-      res.send(err)
-    res.json(todos); //return all todos in JSON format
+      res.send(err);
+    res.json({'hello': 'world'});
+ //   res.json(todos); //return all todos in JSON format
   });
-);
+});
 
 // create todo and send back all todos after creation
 app.post('/api/todos', function(req, res) {
-  
+
   // create a todo - information comes from AJAX request from Angular
   Todo.create({
     text : req.body.text,
@@ -53,7 +54,7 @@ app.post('/api/todos', function(req, res) {
   //get and return all todos after creating a new one
     Todo.find(function(err, todos) {
       if (err)
-        res.send(err)
+        res.send(err);
       res.json(todos);
     });
   });
@@ -70,13 +71,13 @@ app.delete('/api/todos/:todo_id', function(req, res) {
     // get and return all the todos after deleting this one
     Todo.find(function(err, todos) {
       if (err)
-        res.send(err)
+        res.send(err);
       res.json(todos);
     });
   });
 });
 
 // listen (start app with node server.js) ======================================
-    
+
 app.listen(8080);
 console.log("App listening on port 8080");
