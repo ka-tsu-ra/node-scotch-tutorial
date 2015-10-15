@@ -77,6 +77,13 @@ app.delete('/api/todos/:todo_id', function(req, res) {
   });
 });
 
+// front end route - loads the single view file - angular handles the page changes
+app.get('*', function(req, res) {
+  res.sendfile('./public/index.html');
+});
+
+
+
 // listen (start app with node server.js) ======================================
 
 app.listen(8080);
